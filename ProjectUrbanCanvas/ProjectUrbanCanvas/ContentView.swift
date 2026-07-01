@@ -1,23 +1,30 @@
 //
 //  ContentView.swift
-//  ProjectUrbanCanvas
+//  Urban_Canvas
 //
-//  Created by Apprenant 77 on 02/07/2026.
+//  Created by Apprenant 77 on 01/07/2026.
 //
 
 import SwiftUI
 
 struct ContentView: View {
+    @State var listArt = streetsArt[0]
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        
+        NavigationStack {
+                    List(streetsArt) { art in
+                        NavigationLink {
+                        //    StreetArtDetailView(art: art)
+                        } label: {
+                            StreetArtRow(art: art)
+                        }
+                    }
+                    .navigationTitle("Liste de Street arts")
+                }
         }
-        .padding()
+        
     }
-}
+
 
 #Preview {
     ContentView()
