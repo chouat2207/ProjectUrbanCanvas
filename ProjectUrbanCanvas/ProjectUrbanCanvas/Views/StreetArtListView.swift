@@ -130,6 +130,7 @@ struct StreetArtListView: View {
                 .cornerRadius(28)
                 .position(x: 260, y: 300)
             }
+            
         }
     }
 }
