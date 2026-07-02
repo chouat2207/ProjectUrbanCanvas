@@ -7,7 +7,7 @@
 
 import SwiftUI
 struct StreetArtDetailView: View {
-    var art: Art
+    var art: ArtDetails
     var body: some View {
             VStack{
                 AsyncImage(url: URL(string: art.image))
@@ -40,18 +40,18 @@ struct StreetArtDetailView: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .fixedSize(horizontal: false, vertical: true)
                         .padding(.horizontal)
-                    VStack(alignment: .leading, spacing: 2){
-                        Text("Type : ").bold() + Text(art.type)
-                        Text("Condition : ").bold() + Text(art.condition)
-                        Text("Date : ").bold() + Text(art.date)
-                        Text("Auteur : ").bold() + Text(art.Auteur)
-                        Text("Localisation : ").bold() + Text(art.Localisation.replacingOccurrences(of: " (", with: "\n("))
-                    }
-                    .font(.caption)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.horizontal)
-                    .padding(.top, 10)
-                    .padding(.bottom, 12)
+//                    VStack(alignment: .leading, spacing: 2){
+//                        Text("Type : ").bold() + Text("\(art.type)")
+//                        Text("Condition : ").bold() + Text(art.condition)
+//                        Text("Date : ").bold() + Text(art.date)
+//                        Text("Auteur : ").bold() + Text(art.Auteur)
+//                        Text("Localisation : ").bold() + Text(art.Localisation.replacingOccurrences(of: " (", with: "\n("))
+//                    }
+//                    .font(.caption)
+//                    .frame(maxWidth: .infinity, alignment: .leading)
+//                    .padding(.horizontal)
+//                    .padding(.top, 10)
+//                    .padding(.bottom, 12)
                     Image(art.imageLocation)
                         .resizable()
                         .frame(width: 350, height: 200)

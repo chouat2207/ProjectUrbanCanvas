@@ -14,7 +14,7 @@ struct ContentView: View {
         NavigationStack {
                     List(streetsArt) { art in
                         NavigationLink {
-                        //    StreetArtDetailView(art: art)
+                           // StreetArtDetailView(art: art)
                         } label: {
                             StreetArtRow(art: art)
                         }
