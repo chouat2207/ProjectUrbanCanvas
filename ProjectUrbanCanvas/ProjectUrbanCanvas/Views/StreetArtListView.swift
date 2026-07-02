@@ -72,7 +72,7 @@ struct StreetArtListView: View {
                                     Image(systemName: "mappin.circle.fill")
                                         .foregroundColor(.gray)
                                     
-                                    Text(artStreet.description)
+                                    Text(art.Localisation)
                                         .foregroundColor(.gray)
                                 }
                                 .font(.subheadline)

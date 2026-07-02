@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var listArt = streetsArt[0]
+  //  @State var listArt = streetsArt[0]
     var body: some View {
         
         NavigationStack {
-                    List(streetsArt) { art in
+                    List(arts) { art in
                         NavigationLink {
-                           // StreetArtDetailView(art: art)
+                           StreetArtDetailView(art: art)
                         } label: {
                             StreetArtRow(art: art)
                         }

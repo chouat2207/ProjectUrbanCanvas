@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct StreetArtRow: View {
-    var art: StreetsArts
+    var art: ArtDetails
     
     var body: some View {
         HStack {
@@ -27,7 +27,7 @@ struct StreetArtRow: View {
                 Text(art.title)
                     .font(.headline)
                
-                Text("\(Image(systemName: "key.radiowaves.forward.fill"))  \(art.description)")
+                Text("\(Image(systemName: "key.radiowaves.forward.fill"))  \(art.place)")
                         .font(.subheadline)
                         .foregroundStyle(.secondary) //coleur de text gris
 
@@ -38,5 +38,5 @@ struct StreetArtRow: View {
     }
 }
 #Preview {
-    StreetArtRow(art: streetsArt[0])
+    StreetArtRow(art: arts[0])
 }

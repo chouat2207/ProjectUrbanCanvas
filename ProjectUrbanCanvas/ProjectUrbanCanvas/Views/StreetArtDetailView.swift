@@ -5,6 +5,77 @@
 //  Created by Apprenant 77 on 01/07/2026.
 //
 
+//import SwiftUI
+//struct StreetArtDetailView: View {
+//    var art: ArtDetails
+//    var body: some View {
+//            VStack{
+//                AsyncImage(url: URL(string: art.image))
+//                { image in
+//                    image
+//                        .resizable()
+//                       // .scaledToFill()
+//
+//                }
+//                placeholder: {
+//                    Color.gray.opacity(0.1)
+//                }
+//                .frame(height: 330)
+//                .frame(maxWidth: .infinity)
+//                .clipped()
+//                .ignoresSafeArea(edges: .top)
+//                ScrollView {
+//                    Text(art.title)
+//                        .font(.subheadline.bold())
+//                        .foregroundColor(.orange)
+//                        .frame(maxWidth: .infinity, alignment: .leading)
+//                        .padding(.horizontal)
+//                        .padding(.top, 8)
+//                        .padding(.bottom, 6)
+//                    Text(art.description)
+//                        .font(.caption)
+//                        .foregroundColor(.black)
+//                        .opacity(0.8)
+//                        .frame(maxWidth: .infinity, alignment: .leading)
+//                        .fixedSize(horizontal: false, vertical: true)
+//                        .padding(.horizontal)
+//                    VStack(alignment: .leading, spacing: 2){
+//                        Text("Type : ").bold() + Text("\(art.type)")
+//                        Text("Condition : ").bold() + Text(art.condition)
+//                        Text("Date : ").bold() + Text(art.date)
+//                        Text("Auteur : ").bold() + Text(art.Auteur)
+//                        Text("Localisation : ").bold() + Text(art.Localisation)
+//                    }
+//                    .font(.caption)
+//                    .frame(maxWidth: .infinity, alignment: .leading)
+//                    .padding(.horizontal)
+//                    .padding(.top, 10)
+//                    .padding(.bottom, 12)
+//                    Image(art.imageLocation)
+//                        .resizable()
+//                        .scaledToFill()
+//                        .frame(maxWidth: .infinity)
+//                        .frame(height: 200)
+//                        .clipped()
+//                        .cornerRadius(20)
+//                        .padding(.horizontal)
+//                }
+//            }
+//        }
+//    }
+//
+//#Preview {
+//    StreetArtDetailView(art: arts[0])
+//}
+//
+
+//
+//  StreetArtDetailView.swift
+//  Urban_Canvas
+//
+//  Created by Apprenant 77 on 01/07/2026.
+//
+
 import SwiftUI
 struct StreetArtDetailView: View {
     var art: ArtDetails
@@ -14,7 +85,7 @@ struct StreetArtDetailView: View {
                 { image in
                     image
                         .resizable()
-                        .scaledToFill()
+                       // .scaledToFill()
 
                 }
                 placeholder: {
@@ -29,7 +100,7 @@ struct StreetArtDetailView: View {
                     Text(art.title)
                         .font(.subheadline.bold())
                         .foregroundColor(.orange)
-                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .frame(maxWidth: .infinity, alignment: .center)
                         .padding(.horizontal)
                         .padding(.top, 8)
                         .padding(.bottom, 6)
@@ -41,11 +112,11 @@ struct StreetArtDetailView: View {
                         .fixedSize(horizontal: false, vertical: true)
                         .padding(.horizontal)
                     VStack(alignment: .leading, spacing: 2){
-                        Text("Type : ").bold() + Text("\(art.type)")
+                        Text("Type : ").bold() + Text(art.type)
                         Text("Condition : ").bold() + Text(art.condition)
                         Text("Date : ").bold() + Text(art.date)
                         Text("Auteur : ").bold() + Text(art.Auteur)
-                        Text("Localisation : ").bold() + Text(art.Localisation)
+                        Text("Localisation : ").bold() + Text(art.Localisation.replacingOccurrences(of: " (", with: "\n("))
                     }
                     .font(.caption)
                     .frame(maxWidth: .infinity, alignment: .leading)
