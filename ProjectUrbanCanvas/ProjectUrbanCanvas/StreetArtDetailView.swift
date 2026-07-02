@@ -63,5 +63,5 @@ struct StreetArtDetailView: View {
     }
 
 #Preview {
-    StreetArtDetailView(art: arts[1])
+    StreetArtDetailView(art: arts[3])
 }
