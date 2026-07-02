@@ -28,7 +28,7 @@ var arts : [ArtDetails] = [
         type: "Mural", condition: "Bonne", date: "Mars 2022", Auteur: "Kan DMV", Localisation: "Palais de la Bourse , 13001 Marseille (Latitude : 43.2964, longitude : 5.3754)",imageLocation : "La Joconde de Marseille",place: "Marseille"),
     
     ArtDetails(title: "La maison de Cécile", description: "The last of the huge murals painted by Seth in an iconic district of Paris. ", image: "https://streetartcities.com/media/a/a921c9a5-b3de-4d0c-9ba0-b778236d4bd4/orig.jpg",
-        type: "Stencil", condition: "Bonne", date: "Juillet 2021", Auteur: "Julien-Seth-Malland", Localisation: "Blink, 75 Gal Mouffetard Monge, 75005 Paris (Latitude : 48.9134, longitude : 2.3584)",imageLocation : "La maison de Cécile ", place: "Paris"),
+        type: "Stencil", condition: "Bonne", date: "Juillet 2021", Auteur: "Julien-Seth-Malland", Localisation: "Blink, 75 Gal Mouffetard Monge, 75005 Paris (Latitude : 48.9134, longitude : 2.3584)",imageLocation : "La maison de Cécile", place: "Paris"),
     
     ArtDetails(title: "Chloé", description: "this is the Portrait of Chloé, a famous skateboarder from Marseille; It was painted at La Friche Belle de Mai, a cultural center, above the skatepark", image: "https://streetartcities.com/media/d/deb1803f-a156-4f3f-9c72-41481e34feac/orig.jpg",
         type: "Calligraphie", condition: "String", date: "December 2020", Auteur: "Julien-Seth-Malland", Localisation: "Friche la Belle de Mai, 41 Rue Jobin, 13003 Marseille (Latitude : 43.31124, longitude : 5.39063)",imageLocation : "Chloé", place: "Marseille"),
