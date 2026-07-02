@@ -21,61 +21,56 @@
 //#Preview {
 //    CarteView()
 //}
-
-
+//
 //import SwiftUI
 //import MapKit
 //
 //struct CarteView: View {
-//    var streetLocation: StreetLocalisation
-//
-//    var body: some View {
-//        
-//        Map {
-//            Marker(
-//                streetLocation.nameStreet,
-//                coordinate: CLLocationCoordinate2D(
-//                    latitude: streetLocation.latitude,
-//                    longitude: streetLocation.longitude
-//                )
-//            )
-//        }
-//    }
-//}
-//
-//#Preview {
-//    CarteView(streetLocation: streetLocalisations[1])
-////}
-//import SwiftUI
-//import MapKit
-//
-//struct CarteView: View {
-//    var streetLocation: StreetLocalisation
-//
-//    @State private var region = MKCoordinateRegion(
-//        center: CLLocationCoordinate2D(latitude: 48.8566, longitude: 2.3522),
-//        span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+//    var streetLocation = StreetLocalisation(
+//        nameStreet: "Liberté Égalité Fraternité",
+//        Latitude: 48.8958,
+//        Longitude: 2.3721
 //    )
 //
 //    var body: some View {
-//        Map(
-//            ForEach(coordinateRegion: $region, annotationItems: [streetLocation])) { location in
-//            MapMarker(
+//        Map {
+//            
+//            Marker(
+//                streetLocation.nameStreet,
 //                coordinate: CLLocationCoordinate2D(
-//                    latitude: location.Latitude,
-//                    longitude: location.Longitude
+//                    latitude: streetLocation.Latitude,
+//                    longitude: streetLocation.Longitude
 //                )
 //            )
 //        }
-//        .onAppear {
-//            region.center = CLLocationCoordinate2D(
-//                latitude: streetLocation.Latitude,
-//                longitude: streetLocation.Longitude
-//            )
-//        }
+////        .frame(width:200 ,height: 300)
 //    }
 //}
 //
 //#Preview {
-//    CarteView(streetLocation: streetLocalisations[1])
+//    CarteView()
 //}
+
+
+import SwiftUI
+import MapKit
+
+struct CarteView: View {
+    var body: some View {
+        Map {
+            ForEach(streetLocalisations) { location in
+                Marker(
+                    location.nameStreet,
+                    coordinate: CLLocationCoordinate2D(
+                        latitude: location.Latitude,
+                        longitude: location.Longitude
+                    )
+                )
+            }
+        }
+    }
+}
+
+#Preview {
+    CarteView()
+}
