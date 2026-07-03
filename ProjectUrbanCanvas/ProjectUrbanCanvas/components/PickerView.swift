@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PickerView: View {
-    @State  var pickerSelection = Content.liste
+   // @Binding  var pickerSelection = Content
     @Binding  var selection: Content
     
     init(selection: Binding<Content>) {
@@ -38,7 +38,7 @@ struct PickerView: View {
     }
     
     var body: some View {
-        Picker("", selection: $pickerSelection){
+        Picker("", selection: $selection){
                 ForEach(Content.allCases, id: \.self){ content in
                     Text(content.rawValue)
                         .tag(content)
