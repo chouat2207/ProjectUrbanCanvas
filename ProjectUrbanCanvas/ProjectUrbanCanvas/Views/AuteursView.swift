@@ -9,22 +9,25 @@ import SwiftUI
 
 struct AuteursView: View {
     var auteur = auteurs
-    let columns = [
-          GridItem(.flexible(), spacing: 10),
-          GridItem(.flexible() , spacing: 10),
-      ]
+    let columnss = [
+        GridItem(.flexible(), spacing: 10),
+        GridItem(.flexible() , spacing: 10),
+    ]
     var body: some View {
-        ScrollView {
-                    LazyVGrid(columns: columns, spacing: 20) {
-                        ForEach(auteur) { item in
-                            CardAuteur(auteur: item)
-                        }
-                    }
-                    .padding(.horizontal)
+        ScrollView {                             //permettre de scroller dans une vue
+            LazyVGrid(columns: columnss, spacing: 20) {   //afficher sous forme de lignes et des colonnes
+                ForEach(auteur) { item in
+                    CardAuteur(auteur: item)
                 }
-   
             }
+            .padding(.horizontal)
+        }
+        
     }
+}
+
+
+
 
 
 #Preview {

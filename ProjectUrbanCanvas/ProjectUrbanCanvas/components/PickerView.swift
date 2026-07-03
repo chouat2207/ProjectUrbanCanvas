@@ -32,7 +32,7 @@ struct PickerView: View {
             )
         }
      enum Content : String,CaseIterable {
-        case liste = "Liste"
+        case liste = "Liste" 
         case carte = "Carte"
         var id: Self { self }
     }

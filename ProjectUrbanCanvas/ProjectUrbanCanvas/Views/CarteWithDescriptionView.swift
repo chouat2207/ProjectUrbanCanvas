@@ -9,14 +9,17 @@ import SwiftUI
 
 struct CarteWithDescriptionView: View {
     @State var isShowing: Bool = false
+  //  var artDetails: ArtDetails
     var body: some View {
         Button(action: {isShowing = true})
             {
-                Text("Hi")
+                //Text("Hi")
+                CarteView()
         }
             .sheet(isPresented: $isShowing,
                    content: {
                 Text("how")
+               // StreetArtDetailView(art: artDetails)
             })
     }
 }
