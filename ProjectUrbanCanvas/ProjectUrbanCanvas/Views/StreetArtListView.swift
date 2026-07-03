@@ -9,6 +9,8 @@ import SwiftUI
 
 struct StreetArtListView: View {
    // @State private var selection : PickerView.Content
+    @State private var selection: PickerView.Content = .liste
+
     @State private var showFilters = false
     @State private var selectedFilter = "Tous"
     let filters = ["Tous", "Invaders", "Mosaïques", "Mural", "Stencil", "Calligraphie"]
@@ -29,14 +31,9 @@ struct StreetArtListView: View {
                     .ignoresSafeArea()
                 
                 VStack(alignment: .leading) {
-                    
-                    HStack {
-                        Text("Liste des Street arts")
-                            .font(.largeTitle)
-                            .fontWeight(.bold)
-                        
-                        Spacer()
-                        
+                    HStack{
+                        PickerView(selection: $selection)
+
                         Button {
                             showFilters = true
                         } label: {
@@ -49,7 +46,11 @@ struct StreetArtListView: View {
                         }
                     }
                     .padding(.horizontal)
-                    .padding(.top, 50)
+
+                        Text("Liste des Street arts")
+                            .font(.largeTitle)
+                            .fontWeight(.bold)
+                            .padding(.horizontal)
                     
                     ScrollView {
                         VStack {
