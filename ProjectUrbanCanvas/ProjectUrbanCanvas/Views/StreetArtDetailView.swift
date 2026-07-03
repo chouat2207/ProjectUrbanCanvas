@@ -100,7 +100,7 @@ struct StreetArtDetailView: View {
                     Text(art.title)
                         .font(.subheadline.bold())
                         .foregroundColor(.orange)
-                        .frame(maxWidth: .infinity, alignment: .center)
+                        .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.horizontal)
                         .padding(.top, 8)
                         .padding(.bottom, 6)

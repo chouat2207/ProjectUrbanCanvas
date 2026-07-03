@@ -20,6 +20,7 @@ struct TabBarView: View {
                     Label("Auteurs", systemImage: "person.circle.fill")
                 }
         }
+        .tint(.orange)
     }
 
 }

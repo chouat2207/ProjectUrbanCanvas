@@ -11,6 +11,8 @@ struct ContentView: View {
     var body: some View {
         
         NavigationStack {
+            VStack{
+                
                     List(arts) { art in
                         NavigationLink {
                            StreetArtDetailView(art: art)
@@ -22,7 +24,7 @@ struct ContentView: View {
                 }
         }
         
-    }
+}}
 
 
 #Preview {

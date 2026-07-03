@@ -142,7 +142,6 @@ import SwiftUI
 struct StreetArtListView: View {
     @State private var showFilters = false
     @State private var selectedFilter = "Tous"
-    
     let filters = ["Tous", "Invaders", "Mosaïques", "Mural", "Stencil", "Calligraphie"]
     
     var filteredArts: [ArtDetails] {
@@ -154,6 +153,7 @@ struct StreetArtListView: View {
     }
     
     var body: some View {
+      //  PickerView()
         NavigationStack {
             ZStack {
                 Color(.systemGroupedBackground)
