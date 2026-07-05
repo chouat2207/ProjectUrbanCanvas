@@ -16,16 +16,8 @@ struct CarteWithDescriptionView: View {
         
         Button(action: {isShowing = true})
             {
-                
-    //Text("Hi")
-              //  ZStack(alignment: .top){
-                    
                     CarteView()
                     
-                   // PickerFilterBar(selection: $selection,
-                        //            showFilters: $showFilters)
-                    
-           //     }
         }
             .sheet(isPresented: $isShowing,
                    content: {
