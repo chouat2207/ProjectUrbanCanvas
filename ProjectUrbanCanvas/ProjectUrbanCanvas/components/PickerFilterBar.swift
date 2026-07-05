@@ -28,7 +28,7 @@ struct PickerFilterBar: View {
             }
         }
         .padding(.horizontal)
-        .padding(.top, 50)
+       // .padding(.top, 50)
     }
 }
 

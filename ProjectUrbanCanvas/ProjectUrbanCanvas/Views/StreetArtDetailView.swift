@@ -94,7 +94,7 @@ struct StreetArtDetailView: View {
                 .frame(height: 330)
                 .frame(maxWidth: .infinity)
                 .clipped()
-                .ignoresSafeArea(edges: .top)
+            //    .ignoresSafeArea(edges: .top)
 
                 ScrollView {
                     Text(art.title)
