@@ -12,48 +12,38 @@ import MapKit
 
 struct CarteView: View {
     
-
+    
     // Elle envoie un StreetLocalisation.
     var onStreetSelected: (StreetLocalisation) -> Void
-
-    // @State car la position peut changer
-    // quand l'utilisateur déplace ou zoome la carte.
     @State private var position: MapCameraPosition = .region(
         
         MKCoordinateRegion(
-            
-            // Centre de la carte au démarrage.
-            center: CLLocationCoordinate2D(
+            center: CLLocationCoordinate2D(  // Centre de la carte au démarrage.
                 latitude: 43.2964,
                 longitude: 5.3754
-            ),
+                                          ),
             
-            // Niveau de zoom de la carte.
-            span: MKCoordinateSpan(
+            span: MKCoordinateSpan(  // Niveau de zoom de la carte.
                 latitudeDelta: 0.08,
                 longitudeDelta: 0.08
-            )
+                                  )
         )
     )
     var body: some View {
         
-        // Affiche la carte.
-        Map(position: $position) {
-            
-            // Parcourt toutes les localisations
+        
+        Map(position: $position) {   // Affiche la carte.
             ForEach(streetLocalisations) { location in
                 
-                // Annotation permet de créer
-                // un marqueur personnalisé.
+                // Annotation permet de créer un marqueur personnalisé.
                 Annotation(
-                        location.nameStreet,
-                coordinate: CLLocationCoordinate2D(
+                    location.nameStreet,
+                    coordinate: CLLocationCoordinate2D(
                         latitude: location.Latitude,
                         longitude: location.Longitude
                     ),
                     
-                    // Le bas du marqueur est placé
-                    // exactement sur les coordonnées.
+                    // Le bas du marqueur est placé exactement sur les coordonnées.
                     anchor: .bottom
                     
                 ) {
@@ -66,7 +56,7 @@ struct CarteView: View {
                         
                         // Apparence du marqueur.
                         ZStack {
-                                                Circle()
+                            Circle()
                                 .fill(.orange)
                                 .frame(
                                     width: 36,
@@ -80,8 +70,6 @@ struct CarteView: View {
                                     .system(size: 17)
                                 )
                         }
-                        
-                        // Petite ombre sous le marqueur.
                         .shadow(radius: 3)
                     }
                     

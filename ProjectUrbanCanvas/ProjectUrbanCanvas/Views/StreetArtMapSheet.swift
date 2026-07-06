@@ -19,69 +19,62 @@ struct StreetArtMapSheet: View {
     
     
     var body: some View {
-        
-        VStack(spacing: 0) {
-            
-            HStack {
+        NavigationStack{
+            VStack(spacing: 0) {
                 
-                
-                
-                Button {
+                HStack {
+                    Button {
+                        
+                        // Ferme la sheet.
+                        dismiss()
+                        
+                    } label: {
+                        
+                        Image(systemName: "xmark")
+                            .font(.title3)
+                            .foregroundStyle(.gray)
+                            .frame(
+                                width: 44,
+                                height: 44
+                            )
+                            .background(
+                                Color.gray.opacity(0.15)
+                            )
+                            .clipShape(Circle())
+                    }
                     
-                    // Ferme la sheet.
-                    dismiss()
+                    // Pousse le titre vers le centre.
+                    Spacer()
                     
-                } label: {
+                    Text(art.title)
+                        .font(.headline)
+                        .fontWeight(.bold)
+                        .foregroundStyle(.black)
                     
-                    Image(systemName: "xmark")
-                        .font(.title3)
-                        .foregroundStyle(.gray)
-                        .frame(
-                            width: 44,
-                            height: 44
-                        )
-                        .background(
-                            Color.gray.opacity(0.15)
-                        )
-                        .clipShape(Circle())
-                }
-                
-                
-                // Pousse le titre vers le centre.
-                Spacer()
-                
-                
-                Text(art.title)
-                    .font(.headline)
-                    .fontWeight(.bold)
-                    .foregroundStyle(.black)
-                
-                // Limite le titre à une seule ligne.
-                    .lineLimit(1)
-                
-                Spacer()
-                
-                
-                
-                NavigationLink {
+                    // Limite le titre à une seule ligne.
+                        .lineLimit(1)
                     
-                    // Destination : page complète du street art.
-                    StreetArtDetailView(art: art)
-                    
-                } label: {
-                    
-                    Image(systemName: "arrow.right")
-                        .font(.title3)
-                        .foregroundStyle(.white)
-                        .frame(
-                            width: 44,
-                            height: 44
-                        )
-                        .background(.orange)
-                        .clipShape(Circle())
+                    Spacer()
+                  //  ForEach(arts){ art in
+                        NavigationLink {
+                            // page de Description complete
+                            StreetArtDetailView(art: art)
+                            
+                        } label: {
+                            
+                            Image(systemName: "arrow.right")
+                                .font(.title3)
+                                .foregroundStyle(.white)
+                                .frame(
+                                    width: 44,
+                                    height: 44
+                                )
+                                .background(.orange)
+                                .clipShape(Circle())
+                        }
+                 //   }
                 }
             }
-            
             
             .padding()
             

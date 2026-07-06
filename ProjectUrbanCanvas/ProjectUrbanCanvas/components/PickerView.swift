@@ -10,7 +10,7 @@ import SwiftUI
 struct PickerView: View {
    // @Binding  var pickerSelection = Content
     @Binding  var selection: Content
-    
+    //@Binding var selection : COntent 
     init(selection: Binding<Content>) {
             self._selection = selection
     
@@ -20,7 +20,6 @@ struct PickerView: View {
                 blue: 0.28,
                 alpha: 1.0
             )
-    
             UISegmentedControl.appearance().setTitleTextAttributes(
                 [.foregroundColor: UIColor.white],
                 for: .selected
@@ -46,6 +45,7 @@ struct PickerView: View {
                 }
         }
             .pickerStyle(SegmentedPickerStyle())
+            //.background(Color.white)
             .padding()
         
     }}

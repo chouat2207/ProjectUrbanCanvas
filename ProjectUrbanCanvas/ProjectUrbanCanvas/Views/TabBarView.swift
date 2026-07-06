@@ -11,7 +11,7 @@ struct TabBarView: View {
     
     var body: some View {
         TabView {
-            StreetArtListViewView()
+            StreetArtListView()
                 .tabItem {
                     Label("Ouvres", systemImage: "photo.artframe.circle.fill")
                 }
