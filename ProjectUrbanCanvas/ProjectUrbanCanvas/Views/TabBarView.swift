@@ -19,6 +19,10 @@ struct TabBarView: View {
                 .tabItem {
                     Label("Auteurs", systemImage: "person.circle.fill")
                 }
+            MissionDecouverte()
+                .tabItem {
+                    Label("Missions", systemImage: "map.fill",)
+                }
         }
         .tint(.orange)
     }
