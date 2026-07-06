@@ -8,22 +8,28 @@
 import SwiftUI
 
 struct CarteWithDescriptionView: View {
-    @State var isShowing: Bool = false
-    @State private var selection: PickerView.Content = .liste
-    @State private var showFilters = false
-  //  var artDetails: ArtDetails
+    
+    @State private var selectedArt: ArtDetails?
+    
     var body: some View {
         
-        Button(action: {isShowing = true})
-            {
-                    CarteView()
-                    
+        CarteView { location in
+            
+            selectedArt = arts.first { art in
+                art.title == location.nameStreet
+            }
         }
-            .sheet(isPresented: $isShowing,
-                   content: {
-                Text("how")
-               // StreetArtDetailView(art: artDetails)
-            })
+        .sheet(item: $selectedArt) { art in
+            
+            StreetArtMapSheet(art: art)
+                .presentationDetents([
+                    .fraction(0.45),
+                    .medium,
+                    .large
+                ])
+                .presentationDragIndicator(.visible)
+                .presentationCornerRadius(28)
+        }
     }
 }
 
