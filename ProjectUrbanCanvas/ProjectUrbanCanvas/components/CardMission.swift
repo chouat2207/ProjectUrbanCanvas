@@ -8,39 +8,90 @@
 import SwiftUI
 
 struct CardMission: View {
-    var mission =  ArtDetails(title: "Liberté Égalité Fraternité", description: "El Seed revient à Paris avec une œuvre puissante et engagée, visible depuis la rue Jeanne d'Arc. Fidèle à son langage singulier — le calligraffiti — l’artiste franco-tunisien, aujourd’hui reconnu à l’international, a marqué de nombreuses villes à travers le monde par ses fresques monumentales. Il avait déjà laissé une empreinte mémorable dans le 13e arrondissement lors de l'aventure de la Tour Paris 13.", image: "https://streetartcities.com/media/7/7bb12e51-88fe-47f2-ae3a-a0404dc91825/orig.jpg",
-                              type: "Invaders", condition: "trés bonne", date: "Avril 2025", Auteur: "calligraffiti", Localisation: "Water tap, Square Gustave Mesureur, 105 Rue Jeanne d'Arc, 75013 Paris (Latitude : 48.8958, longitude : 2.3721)",imageLocation : "Liberté Égalité Fraternité", place: "Paris")
+
+    var numero: Int
+    var art: ArtDetails
+    var isDiscovered: Bool
+    var onMarkDiscovered: () -> Void
+
     var body: some View {
-        VStack{
-            HStack{
-                AsyncImage(url: URL(string: mission.image)){ image
-                    in image
-                        .resizable()
-                        .scaledToFill()
-                }
-                placeholder: {
-                    Color.gray.opacity(0.8)
-                }
-                .frame(width: 40, height: 40)
-                .clipShape(Circle())
-                //.padding()
-                Text(mission.title)
+        VStack(alignment: .leading, spacing: 10) {
+
+            // Ouvre la fiche détail de l'œuvre.
+            NavigationLink {
+                StreetArtDetailView(art: art)
+            } label: {
+                HStack(alignment: .top, spacing: 12) {
+
+                    // Numéro de la carte dans la mission.
+                    Text("\(numero)")
+                        .font(.headline)
+                        .foregroundColor(.white)
+                        .frame(width: 28, height: 28)
+                        .background(Circle().fill(Color.orange))
+
+                    AsyncImage(url: URL(string: art.image)) { image in
+                        image
+                            .resizable()
+                            .scaledToFill()
+                    } placeholder: {
+                        Color.gray.opacity(0.2)
+                    }
+                    .frame(width: 70, height: 70)
+                    .clipShape(RoundedRectangle(cornerRadius: 12))
+                    .clipped()
+
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text(art.title)
+                            .font(.headline)
+                            .foregroundColor(.black)
+
+                        Text("Type : ").bold() + Text(art.type)
+                        Text("Auteur : ").bold() + Text(art.Auteur)
+                        Text("Lieu : ").bold() + Text(art.place)
+                    }
                     .font(.caption)
-                    .foregroundColor(.orange)
-                    .fontWeight(.bold)
-                  //  .padding()
+                    .foregroundColor(.black.opacity(0.8))
+
+                    Spacer()
+                }
             }
-            Text("Type : ").bold() + Text("\(mission.type) ans")
-            Text("Auteur : ").bold() + Text(mission.Auteur)
-            Text("Localisation : ").bold() + Text(mission.Localisation)
+            .buttonStyle(.plain)
+
+            // Permet de marquer l'œuvre comme découverte, une fois consultée.
+            Button {
+                onMarkDiscovered()
+            } label: {
+                Label(
+                    isDiscovered ? "Découverte" : "Marquer comme découverte",
+                    systemImage: isDiscovered ? "checkmark.circle.fill" : "circle"
+                )
+                .font(.subheadline.bold())
+                .foregroundColor(isDiscovered ? .green : .orange)
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 8)
+                .background(
+                    (isDiscovered ? Color.green : Color.orange).opacity(0.15)
+                )
+                .cornerRadius(12)
+            }
+            .disabled(isDiscovered)
         }
-        .frame(width: 300, height: 200)
-        .background(.white)
+        .padding()
+        .background(Color.white)
         .cornerRadius(20)
-        .shadow(radius: 8)
+        .shadow(radius: 6)
     }
 }
 
 #Preview {
-    CardMission()
+    NavigationStack {
+        CardMission(
+            numero: 1,
+            art: arts[0],
+            isDiscovered: false,
+            onMarkDiscovered: {}
+        )
+        .padding()
+    }
 }
