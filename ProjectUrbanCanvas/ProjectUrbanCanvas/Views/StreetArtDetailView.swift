@@ -22,19 +22,11 @@ struct StreetArtDetailView: View {
                     .resizable()
                 
             } placeholder: {
-                
-                // Pendant le chargement de l'image,on affiche un fond gris.
                 Color.gray.opacity(0.1)
             }
             .frame(height: 330)
-            
-            // L'image prend toute la largeur disponible.
             .frame(maxWidth: .infinity)
-            
-            // Coupe les parties qui dépassent du frame.
             .clipped()
-            
-            // ScrollView permet de scroller
             ScrollView {
                 
                 Text(art.title)
@@ -55,8 +47,6 @@ struct StreetArtDetailView: View {
                     .foregroundColor(.black)
                 
                     .opacity(0.8)
-                
-                // Le texte prend toute la largeur
                 
                     .frame(
                         maxWidth: .infinity,
@@ -90,7 +80,6 @@ struct StreetArtDetailView: View {
                     Text("Auteur : ").bold()
                     + Text(art.Auteur)
                     
-                    
                     Text("Localisation : ").bold()
                     + Text(
                         art.Localisation
@@ -100,12 +89,8 @@ struct StreetArtDetailView: View {
                             )
                     )
                 }
-                
-                // Taille du texte des informations.
                 .font(.caption)
                 
-                // Prend toute la largeur
-                // et reste aligné à gauche.
                 .frame(
                     maxWidth: .infinity,
                     alignment: .leading

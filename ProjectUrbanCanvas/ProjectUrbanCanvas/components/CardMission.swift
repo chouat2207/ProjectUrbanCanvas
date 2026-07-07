@@ -17,13 +17,10 @@ struct CardMission: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
 
-            // Ouvre la fiche détail de l'œuvre.
             NavigationLink {
                 StreetArtDetailView(art: art)
             } label: {
                 HStack(alignment: .top, spacing: 12) {
-
-                    // Numéro de la carte dans la mission.
                     Text("\(numero)")
                         .font(.headline)
                         .foregroundColor(.white)

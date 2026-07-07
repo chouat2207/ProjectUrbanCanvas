@@ -11,8 +11,6 @@ struct StreetArtMapSheet: View {
     
     // Permet de fermer la sheet
     @Environment(\.dismiss) private var dismiss
-    
-    // Street art sélectionné
     let art: ArtDetails
     
     // Action envoyée au parent
@@ -21,14 +19,9 @@ struct StreetArtMapSheet: View {
     
     var body: some View {
         
-        // ✅ UN SEUL VStack contient tout
         VStack(spacing: 0) {
-            
-            // MARK: - Header
-            
+        
             HStack {
-                
-                // Bouton X
                 Button {
                     print("❌ Clic sur X")
                     dismiss()
@@ -44,7 +37,6 @@ struct StreetArtMapSheet: View {
                 
                 Spacer()
                 
-                // Titre
                 Text(art.title)
                     .font(.headline)
                     .fontWeight(.bold)
@@ -53,7 +45,6 @@ struct StreetArtMapSheet: View {
                 
                 Spacer()
                 
-                // Bouton flèche
                 Button {
                     print("➡️ Clic sur flèche")
                     onShowDetail()
@@ -70,9 +61,6 @@ struct StreetArtMapSheet: View {
             .padding()
             .zIndex(1)
             
-            
-            // MARK: - Image
-            
             AsyncImage(url: URL(string: art.image)) { image in
                 image
                     .resizable()
@@ -87,10 +75,6 @@ struct StreetArtMapSheet: View {
             .frame(maxWidth: .infinity)
             .frame(height: 220)
             .clipped()
-            
-            
-            // MARK: - Description
-            
             ScrollView {
                 Text(art.description)
                     .font(.body)

@@ -9,10 +9,7 @@ import SwiftUI
 
 struct MissionDecouverte: View {
 
-    // Œuvres sélectionnées pour la mission en cours.
     @State private var mission: [ArtDetails] = []
-
-    // Identifiants des œuvres déjà marquées comme découvertes.
     @State private var discoveredIDs: Set<UUID> = []
 
     private var discoveredCount: Int {
@@ -52,7 +49,6 @@ struct MissionDecouverte: View {
                             .cornerRadius(16)
                             .padding(.horizontal)
                     }
-
                     ScrollView {
                         VStack(spacing: 16) {
                             ForEach(Array(mission.enumerated()), id: \.element.id) { index, art in
@@ -101,7 +97,7 @@ struct MissionDecouverte: View {
     // pas de doublon d'œuvre, pas de doublon d'auteur·ice, au moins 2 types d'art différents.
     private static func generateMission() -> [ArtDetails] {
         let uniqueAuthorsCount = Set(arts.map { $0.Auteur }).count
-        let maxSelectable = min(5, uniqueAuthorsCount, arts.count)
+        let maxSelectable = max(5, uniqueAuthorsCount, arts.count)
         let minSelectable = min(3, maxSelectable)
 
         guard maxSelectable >= 2 else {

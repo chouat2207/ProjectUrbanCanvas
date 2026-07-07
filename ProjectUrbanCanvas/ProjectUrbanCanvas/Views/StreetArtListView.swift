@@ -1,9 +1,8 @@
-////
-////  StreetArtListViewView.swift
-////  ProjectUrbanCanvas
-////
-////  Created by Apprenant 77 on 03/07/2026.
-////
+//
+//  StreetArtListViewView.swift
+//  ProjectUrbanCanvas
+//
+//  Created by Apprenant 77 on 03/07/2026.
 //
 
 import SwiftUI
@@ -13,7 +12,6 @@ struct StreetArtListView: View {
     @State private var selection: PickerView.Content = .liste
     // false = filtre caché, true = filtre affiché
     @State private var showFilters = false
-    
     // Garde le filtre actuellement sélectionné.
     @State private var selectedFilter = "Tous"
     let filters = [
@@ -32,7 +30,6 @@ struct StreetArtListView: View {
         } else {
             // on garde seulement les arts, dont le type correspond au filtre sélectionné.
             return arts.filter {
-                
                 $0.type == selectedFilter
             }
         }
@@ -44,7 +41,6 @@ struct StreetArtListView: View {
         NavigationStack {
             
             ZStack {
-                
                 // Couleur de fond de la vue.
                 Color(.systemGroupedBackground)
                     .ignoresSafeArea()
@@ -61,13 +57,9 @@ struct StreetArtListView: View {
                             .font(.largeTitle)
                             .fontWeight(.bold)
                             .padding(.horizontal)
-                        
-                        
                         ScrollView {
                             
                             VStack(spacing: 0) {
-                                
-                                
                                 ForEach(filteredArts) { art in
                                     
                                     NavigationLink {
@@ -172,7 +164,6 @@ struct StreetArtListView: View {
                                 Button {
                                     // Enregistrer le filtre choisi.
                                     selectedFilter = filter
-                                    
                                     // Ferme la fenêtre.
                                     showFilters = false
                                     
