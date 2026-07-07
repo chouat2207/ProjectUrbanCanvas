@@ -13,17 +13,12 @@ struct StreetArtMapSheet: View {
     @Environment(\.dismiss) private var dismiss
     let art: ArtDetails
     
-    // Action envoyée au parent
-    // quand on clique sur la flèche
+    // Action envoyée au parent quand on clique sur la flèche
     let onShowDetail: () -> Void
-    
     var body: some View {
-        
         VStack(spacing: 0) {
-        
             HStack {
                 Button {
-                    print("❌ Clic sur X")
                     dismiss()
                 } label: {
                     Image(systemName: "xmark")
@@ -46,7 +41,6 @@ struct StreetArtMapSheet: View {
                 Spacer()
                 
                 Button {
-                    print("➡️ Clic sur flèche")
                     onShowDetail()
                 } label: {
                     Image(systemName: "arrow.right")
@@ -89,7 +83,6 @@ struct StreetArtMapSheet: View {
         .background(Color.white)
     }
 }
-
 #Preview {
     StreetArtMapSheet(
         art: arts[0],

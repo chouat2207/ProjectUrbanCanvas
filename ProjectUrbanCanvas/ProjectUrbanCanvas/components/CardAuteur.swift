@@ -4,9 +4,7 @@
 //
 //  Created by Apprenant 77 on 02/07/2026.
 //
-
 import SwiftUI
-
 struct CardAuteur: View {
     var auteur = Auteurs(nom: "Kan DMV", image: "https://madeinmarseille.net/actualites-marseille/joconde-kan-dmv-fresque-saint-mauront.jpg", origins: "France", age: "49", style: "Pointilisme")
     var body: some View {
@@ -14,14 +12,13 @@ struct CardAuteur: View {
             AsyncImage(url: URL(string: auteur.image)){ image
                 in image
                     .resizable()
-                    .scaledToFill()
             }
             placeholder: {
                 Color.gray.opacity(0.8)
             }
             .frame(width: 80, height: 80)
             .clipShape(Circle())
-            .padding()
+            .padding(.top, 5)
             Text(auteur.nom)
                 .font(.title2)
                 .foregroundColor(.orange)
@@ -43,13 +40,12 @@ struct CardAuteur: View {
             }
             
         }
-        .frame(width: 170, height: 300)
+        .frame(width: 170, height: 350)
         .background(.white)
         .cornerRadius(20)
         .shadow(radius: 8)
     }
 }
-
 #Preview {
     CardAuteur()
 }

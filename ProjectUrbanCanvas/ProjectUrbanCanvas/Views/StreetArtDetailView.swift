@@ -8,13 +8,9 @@
 import SwiftUI
 
 struct StreetArtDetailView: View {
-    
     var art: ArtDetails
-    
     var body: some View {
-        
         VStack {
-            
             AsyncImage(
                 url: URL(string: art.image)
             ) { image in
@@ -95,12 +91,9 @@ struct StreetArtDetailView: View {
                     maxWidth: .infinity,
                     alignment: .leading
                 )
-                
                 .padding(.horizontal)
                 .padding(.top, 10)
                 .padding(.bottom, 12)
-                
-                
                 Image(art.imageLocation)
                     .resizable()
                     .frame(
@@ -110,12 +103,9 @@ struct StreetArtDetailView: View {
                     .cornerRadius(20)
             }
         }
-        
         .ignoresSafeArea()
     }
 }
-
-
 #Preview {
     
     StreetArtDetailView(art: arts[3])

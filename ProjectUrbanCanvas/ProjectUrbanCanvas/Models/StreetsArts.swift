@@ -13,7 +13,6 @@ struct StreetsArts: Identifiable {
     var image: String
 }
 
-
 var streetsArt :[StreetsArts] = [
     StreetsArts(title: "Liberté Égalité Fraternité", description: "Paris", image: "https://streetartcities.com/media/7/7bb12e51-88fe-47f2-ae3a-a0404dc91825/orig.jpg"),
         

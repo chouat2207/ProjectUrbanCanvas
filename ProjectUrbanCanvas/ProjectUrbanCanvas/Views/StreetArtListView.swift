@@ -4,7 +4,6 @@
 //
 //  Created by Apprenant 77 on 03/07/2026.
 //
-
 import SwiftUI
 
 struct StreetArtListView: View {
@@ -104,7 +103,6 @@ struct StreetArtListView: View {
                                                 }
                                                 .font(.subheadline)
                                             }
-                                            // Pousse le chevron complètement à droite.
                                             Spacer()
                                             
                                             Image(systemName: "chevron.right")

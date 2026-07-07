@@ -11,34 +11,28 @@ struct MissionDecouverte: View {
 
     @State private var mission: [ArtDetails] = []
     @State private var discoveredIDs: Set<UUID> = []
-
+    
     private var discoveredCount: Int {
         mission.filter { discoveredIDs.contains($0.id) }.count
     }
-
     private var isMissionCompleted: Bool {
         !mission.isEmpty && discoveredCount == mission.count
     }
-
     var body: some View {
         NavigationStack {
             ZStack {
                 Color(.systemGroupedBackground)
                     .ignoresSafeArea()
-
                 VStack(spacing: 16) {
-
                     Text("Mission découverte")
                         .font(.largeTitle)
                         .fontWeight(.bold)
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.horizontal)
                         .padding(.top)
-
                     Text("\(discoveredCount) œuvres découvertes sur \(mission.count)")
                         .font(.headline)
                         .foregroundColor(.orange)
-
                     if isMissionCompleted {
                         Text("Mission terminée ! Vous avez découvert \(mission.count) œuvres urbaines.")
                             .font(.subheadline.bold())
@@ -121,7 +115,6 @@ struct MissionDecouverte: View {
                 return selection
             }
         }
-
         // Repli si les contraintes ne peuvent pas être satisfaites avec les données mockées.
         return Array(arts.shuffled().prefix(minSelectable))
     }

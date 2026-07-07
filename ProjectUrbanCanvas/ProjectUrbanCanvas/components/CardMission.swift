@@ -6,9 +6,7 @@
 //
 
 import SwiftUI
-
 struct CardMission: View {
-
     var numero: Int
     var art: ArtDetails
     var isDiscovered: Bool
@@ -16,8 +14,7 @@ struct CardMission: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
-
-            NavigationLink {
+        NavigationLink {
                 StreetArtDetailView(art: art)
             } label: {
                 HStack(alignment: .top, spacing: 12) {
@@ -31,7 +28,8 @@ struct CardMission: View {
                         image
                             .resizable()
                             .scaledToFill()
-                    } placeholder: {
+                    }
+                    placeholder: {
                         Color.gray.opacity(0.2)
                     }
                     .frame(width: 70, height: 70)
@@ -54,7 +52,11 @@ struct CardMission: View {
                 }
             }
             .buttonStyle(.plain)
+            /*
+.font(.subheadline.bold())
 
+            */
+                
             // Permet de marquer l'œuvre comme découverte, une fois consultée.
             Button {
                 onMarkDiscovered()
@@ -80,7 +82,6 @@ struct CardMission: View {
         .shadow(radius: 6)
     }
 }
-
 #Preview {
     NavigationStack {
         CardMission(

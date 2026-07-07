@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct PickerView: View {
-   // @Binding  var pickerSelection = Content
     @Binding  var selection: Content
-    //@Binding var selection : COntent 
     init(selection: Binding<Content>) {
             self._selection = selection
     
@@ -45,7 +43,6 @@ struct PickerView: View {
                 }
         }
             .pickerStyle(SegmentedPickerStyle())
-            //.background(Color.white)
             .padding()
         
     }}

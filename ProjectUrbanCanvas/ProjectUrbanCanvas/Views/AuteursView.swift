@@ -25,11 +25,6 @@ struct AuteursView: View {
         
     }
 }
-
-
-
-
-
 #Preview {
     AuteursView()
 }

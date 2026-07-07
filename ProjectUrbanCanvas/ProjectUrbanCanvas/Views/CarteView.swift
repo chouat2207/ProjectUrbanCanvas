@@ -9,11 +9,7 @@ import SwiftUI
 import MapKit
 
 struct CarteView: View {
-    
-    // Fonction utilisée pour envoyer
-    // la localisation sélectionnée au parent.
-    var onStreetSelected: (StreetLocalisation) -> Void
-    
+    var onStreetSelected: (StreetLocalisation) -> Void // Fonction utilisée pour envoyer la localisation sélectionnée au parent.
     @State private var position: MapCameraPosition = .region(
         MKCoordinateRegion(
             center: CLLocationCoordinate2D(
@@ -26,14 +22,9 @@ struct CarteView: View {
             )
         )
     )
-    
     var body: some View {
-        
         Map(position: $position) {
-            
             ForEach(streetLocalisations) { location in
-                
-                // Annotation personnalisée.
                 Annotation(
                     location.nameStreet,
                     coordinate: CLLocationCoordinate2D(
@@ -42,14 +33,10 @@ struct CarteView: View {
                     ),
                     anchor: .bottom
                 ) {
-                    
-                    // Le marqueur est cliquable.
                     Button {
-                        
-                        // Envoie la localisation sélectionnée.
                         onStreetSelected(location)
-                        
-                    } label: {
+                    }
+                    label: {
                         
                         ZStack {
                             
@@ -73,7 +60,6 @@ struct CarteView: View {
         .ignoresSafeArea()
     }
 }
-
 #Preview {
     CarteView { location in
         print(location.nameStreet)

@@ -9,7 +9,6 @@ import SwiftUI
 
 struct StreetArtRow: View {
     var art: ArtDetails
-    
     var body: some View {
         HStack {
             AsyncImage(url: URL(string: art.image)) { image in
@@ -29,10 +28,7 @@ struct StreetArtRow: View {
                
                 Text("\(Image(systemName: "key.radiowaves.forward.fill"))  \(art.place)")
                         .font(.subheadline)
-                        .foregroundStyle(.secondary) //coleur de text gris
-
-                
-               
+                        .foregroundStyle(.secondary) //coleur de text gris 
             }
         }
     }
