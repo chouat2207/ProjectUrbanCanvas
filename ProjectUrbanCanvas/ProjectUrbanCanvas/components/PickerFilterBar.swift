@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-
 struct PickerFilterBar: View {
     @Binding var selection: PickerView.Content
     @Binding var showFilters: Bool

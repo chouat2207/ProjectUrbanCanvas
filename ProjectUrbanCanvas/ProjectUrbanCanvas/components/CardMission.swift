@@ -51,12 +51,7 @@ struct CardMission: View {
                     Spacer()
                 }
             }
-            .buttonStyle(.plain)
-            /*
-.font(.subheadline.bold())
-
-            */
-                
+            .buttonStyle(.plain)                
             // Permet de marquer l'œuvre comme découverte, une fois consultée.
             Button {
                 onMarkDiscovered()
